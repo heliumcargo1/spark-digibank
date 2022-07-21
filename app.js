@@ -77,6 +77,14 @@ app.get('/viewall', function(req,res) {
     res.render('viewall', {name:cust, mail:email, bal:cash});
 })
 
+app.get("/Reroll", function (req, res) {
+
+  connection.query("UPDATE Customers SET AccountBalance=1000");
+
+  res.redirect("/viewall");
+
+});
+
 // transfer page get and post
 app.get('/transfer', function(req, res) {
     res.render("transfer", {transfer: t});
